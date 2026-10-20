@@ -1,0 +1,57 @@
+{
+  "entities": {
+    "Product": {
+      "collection": "products",
+      "fields": {
+        "id": { "type": "string", "required": true },
+        "name": { "type": "string", "required": true },
+        "slug": { "type": "string", "required": true },
+        "brand": { "type": "string", "required": true },
+        "subtitle": { "type": "string", "required": false },
+        "description": { "type": "string", "required": true },
+        "category": { "type": "string", "required": true },
+        "collection": { "type": "string", "required": true },
+        "gender": { "type": "string", "required": true },
+        "concentration": { "type": "string", "required": true },
+        "longevity": { "type": "string", "required": true },
+        "sillage": { "type": "string", "required": true },
+        "variants": { "type": "array", "required": true },
+        "images": { "type": "map", "required": true },
+        "rating": { "type": "number", "required": true },
+        "review_count": { "type": "number", "required": true },
+        "status": { "type": "string", "required": true }
+      }
+    },
+    "Order": {
+      "collection": "orders",
+      "fields": {
+        "id": { "type": "string", "required": true },
+        "order_number": { "type": "string", "required": true },
+        "created_at": { "type": "string", "required": true },
+        "customer": { "type": "map", "required": true },
+        "items": { "type": "array", "required": true },
+        "shipping_address": { "type": "map", "required": true },
+        "subtotal": { "type": "number", "required": true },
+        "discount": { "type": "number", "required": true },
+        "shipping_fee": { "type": "number", "required": true },
+        "total": { "type": "number", "required": true },
+        "status": { "type": "string", "required": true },
+        "payment_method": { "type": "string", "required": true },
+        "payment_status": { "type": "string", "required": true }
+      }
+    },
+    "UserProfile": {
+      "collection": "users",
+      "fields": {
+        "uid": { "type": "string", "required": true },
+        "email": { "type": "string", "required": true },
+        "displayName": { "type": "string", "required": true },
+        "photoURL": { "type": "string", "required": false },
+        "phone": { "type": "string", "required": false },
+        "tier": { "type": "string", "required": true },
+        "addresses": { "type": "array", "required": false },
+        "wishlist": { "type": "array", "required": false }
+      }
+    }
+  }
+}

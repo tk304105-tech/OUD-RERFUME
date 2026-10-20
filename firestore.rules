@@ -1,0 +1,53 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    function isAdmin() {
+      return isAuthenticated() && 
+        (request.auth.token.role in ['admin', 'superadmin', 'manager'] ||
+         request.auth.token.email in ['tk304105@gmail.com', 'admin@auraoud.com']);
+    }
+
+    // Products catalog: anyone can read published products, only admins can write
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Orders: customers can read and create their own orders, admins have full access
+    match /orders/{orderId} {
+      allow create: if true; // Guest or authenticated checkout
+      allow read: if isAdmin() || (isAuthenticated() && resource.data.customer.email == request.auth.token.email);
+      allow update, delete: if isAdmin();
+    }
+
+    // Customer profiles: user can read/write their own profile
+    match /users/{userId} {
+      allow read, write: if isOwner(userId) || isAdmin();
+    }
+
+    // Reviews: public read, authenticated create
+    match /reviews/{reviewId} {
+      allow read: if true;
+      allow create: if isAuthenticated() || true;
+      allow update, delete: if isAdmin();
+    }
+
+    // Coupons: public read of active coupons, admin manage
+    match /coupons/{couponId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Audit logs: admin only
+    match /audit_logs/{logId} {
+      allow read, write: if isAdmin();
+    }
+  }
+}

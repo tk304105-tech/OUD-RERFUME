@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-ink: #111111;
+    --color-ivory: #F8F5EF;
+    --color-beige: #E8E0D4;
+    --color-gold: #C8A96B;
+    --color-gold-deep: #8A6D2F;
+    --color-muted: #6B6B6B;
+    --color-white: #FFFFFF;
+    --color-success: #2F6B4F;
+    --color-warning: #B7791F;
+    --color-danger: #A33A3A;
+
+    /* Admin Aura Oud Theme */
+    --surface-lowest: #0b0e12;
+    --surface-low: #191c20;
+    --surface: #111418;
+    --surface-container: #1d2024;
+    --surface-high: #272a2e;
+    --surface-highest: #323539;
+    --admin-gold: #ffe09d;
+    --admin-gold-container: #e5c378;
+    --admin-gold-deep: #5a4302;
+    --admin-secondary: #e9c176;
+    --admin-outline: #999080;
+    --admin-outline-variant: #4d4639;
+  }
+
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .font-serif-luxury {
+    font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  }
+
+  .font-syne {
+    font-family: 'Syne', sans-serif;
+  }
+
+  .font-mono-data {
+    font-family: 'Geist', monospace;
+    font-feature-settings: "tnum" 1, "zero" 1;
+  }
+}
+
+/* Custom scrollbars for data tables and drawers */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(153, 144, 128, 0.35);
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(153, 144, 128, 0.6);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

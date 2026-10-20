@@ -1,0 +1,7 @@
+{
+  "name": "Aura Oud - Haute Parfumerie & Atelier IMS",
+  "description": "Luxury fragrance e-commerce house and atelier inventory management system for haute parfumerie.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
