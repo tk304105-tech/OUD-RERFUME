@@ -126,22 +126,6 @@ export function Header() {
               </button>
             )}
 
-            {/* Admin Portal Switch */}
-            <button
-              onClick={() => {
-                if (adminUser) {
-                  setMode('admin');
-                } else {
-                  setIsAdminLoginModalOpen(true);
-                }
-              }}
-              className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 bg-[#111111] hover:bg-[#8A6D2F] text-[#FFE09D] text-xs font-syne font-bold uppercase tracking-wider transition-all shadow-sm rounded-sm"
-              title="Launch Admin Portal"
-            >
-              <Boxes className="w-4 h-4" />
-              <span>Admin Portal</span>
-            </button>
-
             {/* Shopping Cart Drawer */}
             <button 
               onClick={() => setIsCartOpen(true)}
@@ -197,20 +181,6 @@ export function Header() {
                 className="w-full py-2.5 bg-[#E8E0D4] text-[#111111] text-xs font-semibold uppercase tracking-wider text-center"
               >
                 Track An Order
-              </button>
-              <button 
-                onClick={() => { 
-                  setIsMobileMenuOpen(false); 
-                  if (adminUser) {
-                    setMode('admin');
-                  } else {
-                    setIsAdminLoginModalOpen(true);
-                  }
-                }}
-                className="w-full py-2.5 bg-[#111111] text-[#C8A96B] text-xs font-semibold uppercase tracking-wider text-center flex items-center justify-center gap-1.5"
-              >
-                <span>Admin Portal</span>
-                <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>

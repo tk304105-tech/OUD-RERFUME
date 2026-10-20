@@ -3,7 +3,7 @@ import { useApp } from '../../context/AppContext';
 import { ShieldCheck, Truck, RefreshCw, Sparkles, Send, Check } from 'lucide-react';
 
 export function Footer() {
-  const { setStorefrontView } = useApp();
+  const { setStorefrontView, adminUser, setMode, setIsAdminLoginModalOpen } = useApp();
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
 
@@ -100,6 +100,12 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-[#262626] flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#6B6B6B]">
         <div>
           &copy; {new Date().getFullYear()} Aura Oud Parfums. All rights reserved. Registered Haute Parfumerie Pakistan.
+          <button 
+            onClick={() => { if (adminUser) setMode('admin'); else setIsAdminLoginModalOpen(true); }}
+            className="ml-3 text-[11px] text-[#555555] hover:text-[#999080] transition-colors"
+          >
+            Staff Access
+          </button>
         </div>
         <div className="flex flex-wrap items-center gap-2 text-[10px] font-mono-data text-[#999080]">
           <span className="px-2 py-0.5 bg-[#191C20] border border-[#333333]">CASH ON DELIVERY</span>
